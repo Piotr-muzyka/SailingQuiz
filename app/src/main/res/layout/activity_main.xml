@@ -6,41 +6,44 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.sailingquiz.MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
-        <Switch
-            android:id="@+id/switch2"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@drawable/layout_rounded"
-            android:gravity="center"
-            android:text="Close App ? "
-            android:textColor="@android:color/white" />
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/layout_rounded"
+                android:gravity="center"
+                android:text="Close App ? "
+                android:textColor="@android:color/white" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="120dp"
-            app:srcCompat="@drawable/sailboat" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                app:srcCompat="@drawable/sailboat" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/layout_rounded"
-            android:text="START"
-            android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/layout_rounded"
+                android:text="START"
+                android:textColor="@android:color/white" />
 
-    </LinearLayout>
-
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
