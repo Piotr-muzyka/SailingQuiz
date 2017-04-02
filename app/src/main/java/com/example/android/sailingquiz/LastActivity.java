@@ -37,7 +37,7 @@ public class LastActivity extends AppCompatActivity {
         s1 = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button);
 
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(60000, 1000) {
             TextView textView2 = (TextView) findViewById(R.id.textView2);
 
             public void onTick(long millisUntilFinished) {

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class ThirdActivity extends AppCompatActivity {
         s1 = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button);
 
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(60000, 1000) {
             TextView textView2 = (TextView) findViewById(R.id.textView2);
 
             public void onTick(long millisUntilFinished) {
@@ -74,14 +75,16 @@ public class ThirdActivity extends AppCompatActivity {
     }
     public void userScores () {
 
-        CheckBox answer2 = (CheckBox) findViewById(R.id.checkBox);
+        RadioButton answer2 = (RadioButton) findViewById(R.id.radioButton2);
         Boolean correctAnswer = answer2.isChecked();
         if (correctAnswer) {
             score++;}
 
-        CheckBox answer1 = (CheckBox) findViewById(R.id.checkBox);
+        CheckBox answer1 = (CheckBox) findViewById(R.id.checkBox3);
+        CheckBox answer3 = (CheckBox) findViewById(R.id.checkBox6);
         Boolean correctAnswer2 = answer1.isChecked();
-        if (correctAnswer2) {
+        Boolean correctAnswer3 = answer3.isChecked();
+        if (correctAnswer2 && correctAnswer3) {
             score++;}
 
     }

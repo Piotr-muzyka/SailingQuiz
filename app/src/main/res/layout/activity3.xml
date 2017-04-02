@@ -57,23 +57,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
+                <RadioButton
+                    android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ketch"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="73dp" />
+                    android:text="Ketch" />
 
-                <CheckBox
-                    android:id="@+id/checkBox"
+                <RadioButton
+                    android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Yawl"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="29dp" />
+                    android:text="Yawl" />
+
             </LinearLayout>
 
             <TextView
@@ -89,7 +86,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Convert 1 knot to km/h "
+                android:text="Convert 1 knot "
                 android:textColor="@android:color/black" />
 
             <LinearLayout
@@ -135,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="2,4 km/h"
+                    android:text="0,514 m/s"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="29dp" />
             </LinearLayout>
@@ -159,8 +156,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/layout_rounded"
-                android:textColor="@color/white"
-                android:text="Confirm" />
+                android:text="Confirm"
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </LinearLayout>
