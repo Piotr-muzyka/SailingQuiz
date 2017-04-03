@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
-    CheckBox ch1,ch2;
     Button b1;
     Switch s1;
     int score = 0;

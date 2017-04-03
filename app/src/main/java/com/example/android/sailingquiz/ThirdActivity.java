@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class ThirdActivity extends AppCompatActivity {
     int score;
-    CheckBox ch1, ch2;
+
     Button b1;
     Switch s1;
 
@@ -28,7 +28,7 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity3);
         Intent myIntent = getIntent();
         score = myIntent.getExtras().getInt("score");
-        
+
         s1 = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button);
 

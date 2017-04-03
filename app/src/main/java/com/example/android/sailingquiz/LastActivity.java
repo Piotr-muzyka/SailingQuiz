@@ -21,7 +21,7 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class LastActivity extends AppCompatActivity {
     int score;
-    CheckBox ch1, ch2;
+
     Button b1;
     Switch s1;
 
