@@ -32,8 +32,6 @@ public class LastActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         score = myIntent.getExtras().getInt("score");
 
-        ch1 = (CheckBox) findViewById(R.id.checkBox);
-        ch2 = (CheckBox) findViewById(R.id.checkBox2);
         s1 = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button);
 

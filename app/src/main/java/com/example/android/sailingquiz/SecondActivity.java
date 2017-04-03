@@ -30,9 +30,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
 
-
-        ch1=(CheckBox)findViewById(R.id.checkBox);
-        ch2=(CheckBox)findViewById(R.id.checkBox2);
         s1=(Switch)findViewById(R.id.switch1);
         b1=(Button)findViewById(R.id.button);
 
