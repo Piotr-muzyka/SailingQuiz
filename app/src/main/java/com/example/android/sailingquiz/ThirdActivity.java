@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +17,10 @@ import android.widget.Toast;
 
 public class ThirdActivity extends AppCompatActivity {
     int score;
+    long remainingTime;
+    long remainingTime2;
 
     Button b1;
-    Switch s1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,44 +28,39 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity3);
         Intent myIntent = getIntent();
         score = myIntent.getExtras().getInt("score");
+        remainingTime = myIntent.getExtras().getLong("time");
 
-        s1 = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button);
 
-        new CountDownTimer(60000, 1000) {
+        final CountDownTimer finalCountdown = new CountDownTimer(remainingTime, 1000) {
             TextView textView2 = (TextView) findViewById(R.id.textView2);
 
             public void onTick(long millisUntilFinished) {
                 textView2.setText("seconds remaining: " + millisUntilFinished / 1000);
+                remainingTime2 = millisUntilFinished;
             }
 
             public void onFinish() {
                 textView2.setText("DONE!");
                 Intent myIntent = new Intent(ThirdActivity.this, LastActivity.class);
-                ThirdActivity.this.startActivity(myIntent);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Toast.makeText(ThirdActivity.this, "Time is up !",
                         Toast.LENGTH_LONG).show();
                 userScores ();
+                ThirdActivity.this.startActivity(myIntent);
                 finish();
             }
         }.start();
-
-        s1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                userScores ();
-                finish();
-            }
-        });
 
         b1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                finalCountdown.cancel();
                 userScores();
                 Intent myIntent = new Intent(ThirdActivity.this, LastActivity.class);
                 myIntent.putExtra("score", score); //Optional parameters
+                myIntent.putExtra("time", remainingTime2); //Optional parameters
                 ThirdActivity.this.startActivity(myIntent);
                 finish();
             }

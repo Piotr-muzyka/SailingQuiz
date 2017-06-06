@@ -24,15 +24,6 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
 
-                <Switch
-                    android:id="@+id/switch1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:background="@drawable/layout_rounded"
-                    android:gravity="center"
-                    android:textColor="@android:color/white" />
-
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="match_parent"

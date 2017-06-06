@@ -6,65 +6,54 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class SecondActivity extends AppCompatActivity {
 
     Button b1;
-    Switch s1;
-    int score = 0;
 
-    public void shutdown (){
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("EXIT", true);
-        startActivity(intent);
-    }
+    int score = 0;
+    long remainingTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
 
-        s1=(Switch)findViewById(R.id.switch1);
         b1=(Button)findViewById(R.id.button);
 
-        new CountDownTimer(60000, 1000) {
+        final CountDownTimer finalCountdown = new CountDownTimer(15000, 1000) {
             TextView textView2 = (TextView) findViewById(R.id.textView2);
 
             public void onTick(long millisUntilFinished) {
                 textView2.setText("seconds remaining: " + millisUntilFinished / 1000);
+                remainingTime = millisUntilFinished;
             }
 
             public void onFinish() {
                 textView2.setText("DONE!");
                 Intent myIntent = new Intent(SecondActivity.this, MainActivity.class);
-                SecondActivity.this.startActivity(myIntent);
                 Toast.makeText(SecondActivity.this, "Time is up !",
                         Toast.LENGTH_LONG).show();
                 userScores ();
+                SecondActivity.this.startActivity(myIntent);
                 finish();
             }
         }.start();
 
-        s1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                shutdown();
-            }
-        });
         b1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
+                finalCountdown.cancel();
                 userScores();
                 Intent myIntent = new Intent(SecondActivity.this, ThirdActivity.class);
-                myIntent.putExtra("score", score); //Optional parameters
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.putExtra("score", score); //Optional parameter for keeping score between activities.
+                myIntent.putExtra("time", remainingTime); //Optional parameter for keeping time between activities.
                 SecondActivity.this.startActivity(myIntent);
                 finish();
             }
