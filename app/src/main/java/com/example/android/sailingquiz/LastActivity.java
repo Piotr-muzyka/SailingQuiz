@@ -15,8 +15,8 @@ import android.widget.Toast;
  */
 
 public class LastActivity extends AppCompatActivity {
-    int score=0;
-    long remainingTime=0;
+    int score = 0;
+    long remainingTime = 0;
 
     Button b1;
 
@@ -28,23 +28,23 @@ public class LastActivity extends AppCompatActivity {
         score = myIntent.getExtras().getInt("score");
         remainingTime = myIntent.getExtras().getLong("time");
 
-        b1 = (Button) findViewById(R.id.button);
+        b1 = (Button) findViewById(R.id.confirmButton3);
 
         final CountDownTimer finalCountdown = new CountDownTimer(remainingTime, 1000) {
-            TextView textView2 = (TextView) findViewById(R.id.textView2);
+            TextView textView2 = (TextView) findViewById(R.id.time3);
 
             public void onTick(long millisUntilFinished) {
-                textView2.setText("seconds remaining: " + millisUntilFinished / 1000);
+                textView2.setText(getString(R.string.secondsText) + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-                textView2.setText("DONE!");
+                textView2.setText(R.string.done);
                 Intent myIntent = new Intent(LastActivity.this, MainActivity.class);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 LastActivity.this.startActivity(myIntent);
-                Toast.makeText(LastActivity.this, "Time is up !",
+                Toast.makeText(LastActivity.this, R.string.toast,
                         Toast.LENGTH_LONG).show();
-                userScores ();
+                userScores();
                 finish();
             }
         }.start();
@@ -64,30 +64,32 @@ public class LastActivity extends AppCompatActivity {
             }
         });
     }
-    public void userScores () {
 
-        EditText answer = (EditText) findViewById(R.id.edit);
+    public void userScores() {
+
+        EditText answer = (EditText) findViewById(R.id.question5edit1);
         String correctAnswer = answer.getText().toString();
-        if (correctAnswer.equals("Halyard") || correctAnswer.equals("halyard") ) {score ++;}
+        if (correctAnswer.equals(getString(R.string.textAnswer5)) || correctAnswer.equals(getString(R.string.textAnswer5A))) {
+            score++;
+        }
 
-        EditText answer2 = (EditText) findViewById(R.id.edit2);
+        EditText answer2 = (EditText) findViewById(R.id.question6edit1);
         String correctAnswer2 = answer2.getText().toString();
-        if (correctAnswer2.equals("Apparent") || correctAnswer2.equals("apparent") ) {score ++;}
+        if (correctAnswer2.equals(getString(R.string.textAnswer6)) || correctAnswer2.equals(getString(R.string.textAnswer6A))) {
+            score++;
+        }
 
-        EditText answer3 = (EditText) findViewById(R.id.edit3);
+        EditText answer3 = (EditText) findViewById(R.id.question7edit1);
         String correctAnswer3 = answer3.getText().toString();
-        if (correctAnswer3.equals("Pulpit") || correctAnswer3.equals("pulpit") ) {score ++;}
-
-
-        if(score <=3){
-            Toast.makeText(this, "You have scored " + score + " out of 7 points, keep on working", Toast.LENGTH_LONG).show();
-
+        if (correctAnswer3.equals(getString(R.string.textAnswer7)) || correctAnswer3.equals(getString(R.string.textAnswer7A))) {
+            score++;
         }
-        else {
-            Toast.makeText(this, "You have scored " + score + " out of 7 points, good job ! ", Toast.LENGTH_LONG).show();
+        if (score <= 3) {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotal), Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotalGood), Toast.LENGTH_LONG).show();
         }
-
-
         score = 0;
     }
 }

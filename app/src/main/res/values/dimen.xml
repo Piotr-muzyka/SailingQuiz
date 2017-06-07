@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="switchWidth">100dp</dimen>
+    <dimen name="imageViewHeight">140dp</dimen>
+    <dimen name="imageViewWidth">140dp</dimen>
+    <dimen name="imageViewMarginTop">120dp</dimen>
+    <dimen name="buttonMarginTop">40dp</dimen>
+    <dimen name="buttonMarginTop1">40dp</dimen>
+    <dimen name="buttonMarginTop2">40dp</dimen>
+    <dimen name="buttonMarginTop3">40dp</dimen>
+    <dimen name="imageViewQ1Height">110dp</dimen>
+    <dimen name="imageViewQ1Width">110dp</dimen>
+    <dimen name="imageViewQ1MarginBottom">20dp</dimen>
+    <dimen name="imageViewQ1MarginTop">20dp</dimen>
+    <dimen name="textViewQ1MarginTop">10dp</dimen>
+    <dimen name="textViewQ4MarginTop">10dp</dimen>
+    <dimen name="label6MarginTop">10dp</dimen>
+    <dimen name="label7MarginTop">10dp</dimen>
+    <dimen name="imageViewQ3Height">180dp</dimen>
+    <dimen name="imageViewQ3Width">180dp</dimen>
+</resources>

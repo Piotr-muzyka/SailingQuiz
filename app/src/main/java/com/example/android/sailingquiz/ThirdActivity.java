@@ -30,23 +30,23 @@ public class ThirdActivity extends AppCompatActivity {
         score = myIntent.getExtras().getInt("score");
         remainingTime = myIntent.getExtras().getLong("time");
 
-        b1 = (Button) findViewById(R.id.button);
+        b1 = (Button) findViewById(R.id.confirmButton2);
 
         final CountDownTimer finalCountdown = new CountDownTimer(remainingTime, 1000) {
-            TextView textView2 = (TextView) findViewById(R.id.textView2);
+            TextView textView2 = (TextView) findViewById(R.id.time2);
 
             public void onTick(long millisUntilFinished) {
-                textView2.setText("seconds remaining: " + millisUntilFinished / 1000);
+                textView2.setText(getString(R.string.secondsText) + millisUntilFinished / 1000);
                 remainingTime2 = millisUntilFinished;
             }
 
             public void onFinish() {
-                textView2.setText("DONE!");
+                textView2.setText(R.string.done);
                 Intent myIntent = new Intent(ThirdActivity.this, LastActivity.class);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Toast.makeText(ThirdActivity.this, "Time is up !",
+                Toast.makeText(ThirdActivity.this, R.string.toast,
                         Toast.LENGTH_LONG).show();
-                userScores ();
+                userScores();
                 ThirdActivity.this.startActivity(myIntent);
                 finish();
             }
@@ -66,19 +66,27 @@ public class ThirdActivity extends AppCompatActivity {
             }
         });
     }
-    public void userScores () {
 
-        RadioButton answer2 = (RadioButton) findViewById(R.id.radioButton2);
-        Boolean correctAnswer = answer2.isChecked();
+    public void userScores() {
+
+        RadioButton answer1 = (RadioButton) findViewById(R.id.question3radio2);
+        Boolean correctAnswer = answer1.isChecked();
         if (correctAnswer) {
-            score++;}
+            score++;
+        }
 
-        CheckBox answer1 = (CheckBox) findViewById(R.id.checkBox3);
-        CheckBox answer3 = (CheckBox) findViewById(R.id.checkBox6);
-        Boolean correctAnswer2 = answer1.isChecked();
+        CheckBox answer2 = (CheckBox) findViewById(R.id.question4checkBox1);
+        CheckBox answer3 = (CheckBox) findViewById(R.id.question4checkBox4);
+        CheckBox answer4 = (CheckBox) findViewById(R.id.question4checkBox2);
+        CheckBox answer5 = (CheckBox) findViewById(R.id.question4checkBox3);
+        Boolean correctAnswer2 = answer2.isChecked();
         Boolean correctAnswer3 = answer3.isChecked();
-        if (correctAnswer2 && correctAnswer3) {
-            score++;}
+        Boolean wrongAnswer1 = answer4.isChecked();
+        Boolean wrongAnswer2 = answer5.isChecked();
+
+        if (correctAnswer2 && correctAnswer3 && !wrongAnswer1 && !wrongAnswer2) {
+            score++;
+        }
 
     }
 }
