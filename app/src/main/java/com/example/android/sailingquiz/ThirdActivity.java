@@ -42,12 +42,13 @@ public class ThirdActivity extends AppCompatActivity {
 
             public void onFinish() {
                 textView2.setText(R.string.done);
-                Intent myIntent = new Intent(ThirdActivity.this, LastActivity.class);
+                Intent myIntent = new Intent(ThirdActivity.this, MainActivity.class);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Toast.makeText(ThirdActivity.this, R.string.toast,
                         Toast.LENGTH_LONG).show();
                 userScores();
                 ThirdActivity.this.startActivity(myIntent);
+                result();
                 finish();
             }
         }.start();
@@ -86,6 +87,15 @@ public class ThirdActivity extends AppCompatActivity {
 
         if (correctAnswer2 && correctAnswer3 && !wrongAnswer1 && !wrongAnswer2) {
             score++;
+        }
+    }
+
+    public void result(){
+        if (score <= 3) {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotal), Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotalGood), Toast.LENGTH_LONG).show();
         }
 
     }

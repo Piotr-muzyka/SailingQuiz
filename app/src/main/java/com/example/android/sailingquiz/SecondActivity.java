@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity {
 
         b1 = (Button) findViewById(R.id.confirmButton1);
 
-        final CountDownTimer finalCountdown = new CountDownTimer(60000, 1000) {
+        final CountDownTimer finalCountdown = new CountDownTimer(10000, 1000) {
             TextView textView2 = (TextView) findViewById(R.id.time1);
 
             public void onTick(long millisUntilFinished) {
@@ -39,6 +39,7 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(SecondActivity.this, R.string.toast,
                         Toast.LENGTH_LONG).show();
                 userScores();
+                result();
                 SecondActivity.this.startActivity(myIntent);
                 finish();
             }
@@ -72,6 +73,14 @@ public class SecondActivity extends AppCompatActivity {
         Boolean correctAnswer2 = answer2.isChecked();
         if (correctAnswer2) {
             score++;
+        }
+    }
+    public void result(){
+        if (score <= 3) {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotal), Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotalGood), Toast.LENGTH_LONG).show();
         }
 
     }

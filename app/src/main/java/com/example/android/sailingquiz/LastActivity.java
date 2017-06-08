@@ -15,8 +15,8 @@ import android.widget.Toast;
  */
 
 public class LastActivity extends AppCompatActivity {
-    int score = 0;
-    long remainingTime = 0;
+    int score;
+    long remainingTime;
 
     Button b1;
 
@@ -45,6 +45,7 @@ public class LastActivity extends AppCompatActivity {
                 Toast.makeText(LastActivity.this, R.string.toast,
                         Toast.LENGTH_LONG).show();
                 userScores();
+                result();
                 finish();
             }
         }.start();
@@ -59,6 +60,7 @@ public class LastActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(LastActivity.this, MainActivity.class);
                 myIntent.putExtra("score", score); //Optional parameters
                 LastActivity.this.startActivity(myIntent);
+                result();
                 finish();
 
             }
@@ -84,12 +86,15 @@ public class LastActivity extends AppCompatActivity {
         if (correctAnswer3.equals(getString(R.string.textAnswer7)) || correctAnswer3.equals(getString(R.string.textAnswer7A))) {
             score++;
         }
+    }
+
+    public void result(){
         if (score <= 3) {
             Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotal), Toast.LENGTH_LONG).show();
 
         } else {
             Toast.makeText(this, getString(R.string.scoredText) + " " + score + getString(R.string.pointsTotalGood), Toast.LENGTH_LONG).show();
         }
-        score = 0;
+
     }
 }
